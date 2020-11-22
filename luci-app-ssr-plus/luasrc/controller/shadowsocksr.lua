@@ -7,20 +7,20 @@ function index()
 	if not nixio.fs.access("/etc/config/shadowsocksr") then
 		return
 	end
-	entry({"admin", "nas", "shadowsocksr"}, alias("admin", "nas", "shadowsocksr", "client"),_("ShadowSocksR Plus+"), 10).dependent = true
-	entry({"admin", "nas", "shadowsocksr", "client"}, cbi("shadowsocksr/client"),_("SSR Client"), 10).leaf = true
-	entry({"admin", "nas", "shadowsocksr", "servers"}, arcombine(cbi("shadowsocksr/servers", {autoapply = true}), cbi("shadowsocksr/client-config")),_("Severs Nodes"), 20).leaf = true
-	entry({"admin", "nas", "shadowsocksr", "control"},cbi("shadowsocksr/control"), _("Access Control"), 30).leaf = true
-	entry({"admin", "nas", "shadowsocksr", "advanced"},cbi("shadowsocksr/advanced"),_("Advanced Settings"), 50).leaf = true
-	entry({"admin", "nas", "shadowsocksr", "server"},arcombine(cbi("shadowsocksr/server"), cbi("shadowsocksr/server-config")),_("SSR Server"), 60).leaf = true
-	entry({"admin", "nas", "shadowsocksr", "status"},form("shadowsocksr/status"),_("Status"), 70).leaf = true
-	entry({"admin", "nas", "shadowsocksr", "check"}, call("check_status"))
-	entry({"admin", "nas", "shadowsocksr", "refresh"}, call("refresh_data"))
-	entry({"admin", "nas", "shadowsocksr", "subscribe"}, call("subscribe"))
-	entry({"admin", "nas", "shadowsocksr", "checkport"}, call("check_port"))
-	entry({"admin", "nas", "shadowsocksr", "log"},form("shadowsocksr/log"),_("Log"), 80).leaf = true
-	entry({"admin", "nas", "shadowsocksr","run"},call("act_status")).leaf = true
-	entry({"admin", "nas", "shadowsocksr", "ping"}, call("act_ping")).leaf = true
+	entry({"admin", "shadowsocksr"}, alias("admin", "shadowsocksr", "client"),_("ShadowSocksR Plus+"), 10).dependent = true
+	entry({"admin", "shadowsocksr", "client"}, cbi("shadowsocksr/client"),_("SSR Client"), 10).leaf = true
+	entry({"admin", "shadowsocksr", "servers"}, arcombine(cbi("shadowsocksr/servers", {autoapply = true}), cbi("shadowsocksr/client-config")),_("Severs Nodes"), 20).leaf = true
+	entry({"admin", "shadowsocksr", "control"},cbi("shadowsocksr/control"), _("Access Control"), 30).leaf = true
+	entry({"admin", "shadowsocksr", "advanced"},cbi("shadowsocksr/advanced"),_("Advanced Settings"), 50).leaf = true
+	entry({"admin", "shadowsocksr", "server"},arcombine(cbi("shadowsocksr/server"), cbi("shadowsocksr/server-config")),_("SSR Server"), 60).leaf = true
+	entry({"admin", "shadowsocksr", "status"},form("shadowsocksr/status"),_("Status"), 70).leaf = true
+	entry({"admin", "shadowsocksr", "check"}, call("check_status"))
+	entry({"admin", "shadowsocksr", "refresh"}, call("refresh_data"))
+	entry({"admin", "shadowsocksr", "subscribe"}, call("subscribe"))
+	entry({"admin", "shadowsocksr", "checkport"}, call("check_port"))
+	entry({"admin", "shadowsocksr", "log"},form("shadowsocksr/log"),_("Log"), 80).leaf = true
+	entry({"admin", "shadowsocksr","run"},call("act_status")).leaf = true
+	entry({"admin", "shadowsocksr", "ping"}, call("act_ping")).leaf = true
 end
 
 function subscribe()
